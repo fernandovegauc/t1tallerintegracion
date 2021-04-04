@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Characters</title>
+</head>
+
+<body>
+    <body>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar" >
+                    <span class="navbar-toggler-icon"></span>
+    
+                </button>
+                <div class="collapse navbar-collapse" id="Navbar">
+    
+                
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="/catalog"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button type="button" class="btn btn-outline-primary">Buscar</button>
+                        </form>
+                        
+                    </ul>
+                </div>          
+            </div>
+    
+        </nav>
+        <header class="jumbotron">
+            <div class="container">
+                <div class="row row-header">
+                    <div class="col-12 col-sm-6">
+                        <h1>Tarea 1 Taller de Integración</h1>
+                        <p> El objetivo de esta tarea es desplegar un sitio web que se conecte a una API Web para obtener
+                            información y mostrarla al público.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row row-content align-items-center">
+                <div class="col-12 col-sm-6 ">
+                    <h2> bienvenido al perfil de {{character_info.name}}</h2>
+                    <div class="card " style="width: 18rem;">
+                        <img src="{{character_info.img}}" class="card-img-top img-fluid" alt="..." width="200" height="250">
+                        <div class="card-body">
+                            <h2 class="card-title">Nick name : {{character_info.nickname}}</h2>
+                            <p class="card-text">
+                                <ul class="list_group">
+                                    <li class="list-group-item"> Char ID: {{character_info.char_id}} </li> 
+                                    <li class="list-group-item"> Status: {{character_info.status}} </li>
+                                    <li class="list-group-item"> Actor/Actriz: {{character_info.portrayed}} </li>
+                                    <li class="list-group-item"> Roles : {{character_info.occupation}}</li>
+                                    {% if character_info.appearance %}
+                                    <li> Apariciones en Breaking Bad
+
+                                
+                                        
+                                            {% for x in character_info.appearance %}
+                                                <ul class="list_group">
+                                                    
+
+                                                
+                                                    <li class="list-group-item"> <a href="/catalog/seasons/{{x}}/BB"> Temporada: {{ x }}  </a></li>
+                                                </ul>
+                                            {% endfor %}
+                                    </li>
+                                    {%endif%}
+                                    
+
+                                    
+
+                                
+                                    {% if character_info.better_call_saul_appearance %}
+                                        <li> Apariciones en Better Call Saul
+                                        {% for x in character_info.better_call_saul_appearance %}
+                                            <ul class="list_group">
+
+                                            
+                                                <li class="list-group-item"><a href="/catalog/seasons/{{x}}/BCS"> Temporada: {{ x }}  </a> </li>
+                                            </ul>
+                                        {% endfor %}
+                                        </li>
+                                    {%endif%}
+                                    
+
+
+
+
+                                </ul>
+                                
+
+                               
+                                
+                                   
+                                  
+                                
+                            </p>
+                            <a href="/catalog" class="btn btn-primary">Ir a home page</a>
+                        </div>
+                    </div>
+                    <div class="card " style="width: 18rem;">
+                        {%if quote_info%}
+                            <h1>Citas de {{character_info.name}}</h1>
+                            <div class="card-body">
+                                <p class="card-text">
+
+
+                                    {%for quote in quote_info%}
+                                        <li>  {{quote.quote}} </li> 
+                                    {%endfor%}
+                                    
+                                    
+                                    
+                                    
+                                </p>
+                            
+                            </div>
+                        {%else%}
+                            <h1>{{character_info.name}} no tiene citas :(</h1>
+
+                        {%endif%}
+                    </div>
+    
+                    
+                </div>
+            </div>
+    
+                    
+    
+        </div>
+            
+        
+            
+    </body>
+    
+    </html>
+    
+    
