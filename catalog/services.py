@@ -77,7 +77,7 @@ def search_character(SearchValue):
         if  len(response) == 0:
             break
         else:
-            offset += 2
+            offset += 10
             json_global += response
 
 
