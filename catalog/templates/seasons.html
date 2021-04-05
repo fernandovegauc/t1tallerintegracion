@@ -54,14 +54,16 @@
     <div class="container">
         <div class="row row-content align-items-center">
             <div class="col-12 col-sm-6 ">
-                <h2> Better Call Saul</h2>
-                <ul>
-                    {% for seasons in seasons_BCS %}
-                    <li>
-                        <a href="seasons/{{seasons}}/BCS">Temporada {{seasons}}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                {%if serie == 'BCS'%}
+                    <h2> Better Call Saul</h2>
+                        
+                    
+                    {%else%}
+                    <h2> Breaking Bad</h2>
+                        
+                    {% endif %}
+                
+                
                 
             </div>
         </div>
