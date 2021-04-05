@@ -66,8 +66,23 @@ def get_info_quote(character):
     return response  
     
    
-
-        
+def search_character(SearchValue):
+    offset = 0
+    json_global = []
+   
+    while 1:
+        url = 'https://tarea-1-breaking-bad.herokuapp.com/api/characters' 
+        params = {'name': SearchValue, 'offset':offset}
+        response = generate_request(url, params)
+        if  len(response) == 0:
+            break
+        else:
+            offset += 2
+            json_global += response
 
 
     
+
+    return json_global
+        
+

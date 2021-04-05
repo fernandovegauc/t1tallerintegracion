@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import requests
-from .services import get_seasons, get_episodes_BB, get_episodes_BCS, get_info_episode, get_info_character, get_info_quote
+from .services import get_seasons, get_episodes_BB, get_episodes_BCS, get_info_episode, get_info_character, get_info_quote, search_character
 # Create your views here.
 def index(request):
     """View function for home page of site."""
@@ -60,5 +60,26 @@ def characters(request,season, serie, episode, character):
     return render(request, 'characters.html', context=context)
 
 def search(request):
+    context = {'search_character': search_character(request.GET.get('SearchValue'))
 
-    return 'hola'
+    }
+
+    return render(request, 'search.html', context=context)
+
+def search_s(request,season):
+    context = {'search_character': search_character(request.GET.get('SearchValue'))
+
+    }
+
+    return render(request, 'search.html', context=context)
+
+
+def characters_new(request, character):
+
+    context = {'character_info': get_info_character(character),
+    
+    
+
+    }
+    return render(request, 'character_new.html', context=context)
+

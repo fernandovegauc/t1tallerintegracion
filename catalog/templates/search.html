@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="css/styles.css">
-    <title>INDEX</title>
+    <title>Search</title>
 </head>
 
 <body>
@@ -26,9 +26,9 @@
             
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a></li>
-                    <form action='search.html' method="GET" class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button type="button" class="btn btn-outline-primary">Buscar</button>
+                    <form class="d-flex" id="Search" action="/catalog/search">
+                        <input class="form-control me-2" type="search" id="SearchValue" name="SearchValue" placeholder="Buscar Personaje" aria-label="Search">
+                        <button type="submit" class="btn btn-outline-primary">Buscar</button>
                     </form>
                     
                 </ul>
@@ -40,6 +40,9 @@
         <div class="container">
             <div class="row row-header">
                 <div class="col-12 col-sm-6">
+                    <br>
+                    
+                    <br>
                     <h1>Tarea 1 Taller de Integración</h1>
                     <p> El objetivo de esta tarea es desplegar un sitio web que se conecte a una API Web para obtener
                         información y mostrarla al público.</p>
@@ -48,3 +51,30 @@
             </div>
         </div>
     </header>
+    <div class="container">
+        <div class="row row-content align-items-center">
+            <div class="col-12 col-sm-6 ">
+                {%if search_character%}
+                    <h2> Resultados de la busqueda</h2>
+                    <ul>
+                        {% for result in search_character %}
+                        <li>
+                            <a href="character_new.html/{{result.name}}"">{{result.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {%else%}
+                    <h2> No hay resultados para tu busqueda:( </h2>
+                {%endif%}
+                
+                
+                
+            </div>
+        </div>
+
+</body>
+
+</html>
+    
+   
+           

@@ -28,9 +28,9 @@
             
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active"><a class="nav-link" href="/catalog"><span class="fa fa-home fa-lg"></span> Home</a></li>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button type="button" class="btn btn-outline-primary">Buscar</button>
+                    <form class="d-flex" id="Search" action="/catalog/search">
+                        <input class="form-control me-2" type="search" id="SearchValue" name="SearchValue" placeholder="Buscar Personaje" aria-label="Search">
+                        <button type="submit" class="btn btn-outline-primary">Buscar</button>
                     </form>
                     
                 </ul>
@@ -42,6 +42,9 @@
         <div class="container">
             <div class="row row-header">
                 <div class="col-12 col-sm-6">
+                    <br>
+                    
+                    <br>
                     <h1>Tarea 1 Taller de Integración</h1>
                     <p> El objetivo de esta tarea es desplegar un sitio web que se conecte a una API Web para obtener
                         información y mostrarla al público.</p>
@@ -60,7 +63,7 @@
                         <a href="seasons/{{seasons}}/BCS">Temporada {{seasons}}</a>
                     </li>
                     {% endfor %}
-                    </ul>
+                </ul>
                 
             </div>
         </div>
