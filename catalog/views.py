@@ -44,7 +44,7 @@ def episodes(request,season, serie, episode):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'episodes.html', context=context)
-
+'''
 def characters(request,season, serie, episode, character):
 
     context = {'character_info': get_info_character(character),
@@ -58,6 +58,7 @@ def characters(request,season, serie, episode, character):
 
 
     return render(request, 'characters.html', context=context)
+'''
 
 def search(request):
     context = {'search_character': search_character(request.GET.get('SearchValue'))
@@ -74,7 +75,7 @@ def search_s(request,season):
     return render(request, 'search.html', context=context)
 
 
-def characters_new(request, character):
+def characters(request, character):
 
     context = {'character_info': get_info_character(character),
     
