@@ -14,7 +14,7 @@ urlpatterns = [
     
     path('seasons/<int:season>/<str:serie>', views.season, name='seasons'),
     path('seasons/<int:season>/<str:serie>/<str:episode>', views.episodes, name='episodes'),
-    path('/<str:character>', views.characters, name='characters'),
+    path('<str:character>', views.characters, name='characters'),
 
 
    

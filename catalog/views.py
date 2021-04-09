@@ -78,9 +78,10 @@ def search_s(request,season):
 def characters(request, character):
 
     context = {'character_info': get_info_character(character),
+                'quote_info': get_info_quote(character),
     
     
 
     }
-    return render(request, 'character_new.html', context=context)
+    return render(request, 'characters.html', context=context)
 
