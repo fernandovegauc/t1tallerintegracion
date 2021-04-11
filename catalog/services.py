@@ -1,4 +1,5 @@
 import requests
+## code based on https://codigofacilito.com/articulos/consumir-api-django
 
 def generate_request(url, params={}):
     response = requests.get(url, params=params)
