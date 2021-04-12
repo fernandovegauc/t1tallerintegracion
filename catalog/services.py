@@ -73,7 +73,7 @@ def search_character(SearchValue):
    
     while 1:
         url = 'https://tarea-1-breaking-bad.herokuapp.com/api/characters' 
-        params = {'name': SearchValue, 'offset':offset}
+        params = {'name': SearchValue.lower(), 'offset':offset}
         response = generate_request(url, params)
         if  len(response) == 0:
             break
